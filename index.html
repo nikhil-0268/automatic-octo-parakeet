@@ -1,0 +1,335 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      tringgg — Cleaner Streets. Smarter Collections.
+    </title>
+    <meta name="description" content="tringgg is a voice-inclusive smart waste collection experience for Kathmandu. Homepage visual reference concept." />
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer>
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#about">
+      Skip to main content
+    </a>
+    <main>
+      <section id="top" class="hero" aria-label="tringgg homepage hero">
+        <div class="hero-photo active" role="img" aria-label="Waste collectors working beside a collection truck" data-photo="1">
+        </div>
+        <div class="hero-photo" role="img" aria-label="Recycling worker collecting bottles and plastics" data-photo="2">
+        </div>
+        <div class="hero-tint">
+        </div>
+        <div class="hero-grain">
+        </div>
+        <header class="nav">
+          <nav class="nav-links" aria-label="Primary navigation left">
+            <a href="#about">
+              About
+            </a>
+            <a href="#services">
+              Services
+            </a>
+            <a href="#sustainability">
+              Sustainability
+            </a>
+          </nav>
+          <a href="#top" class="brand" aria-label="tringgg — home">
+            <svg class="brand-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+              <path d="M7 28c6-1 8-8 11-19 9 1 16 7 15 15-1 7-8 11-16 8" stroke="#84d762" stroke-width="3" stroke-linecap="round"/>
+              <path d="M16 31c1-10 7-17 17-22" stroke="#d4f6ba" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <span class="brand-name">
+              tringgg
+            </span>
+            <span class="brand-sub">
+              CLEANER TOGETHER
+            </span>
+          </a>
+          <nav class="nav-links nav-right" aria-label="Primary navigation right">
+            <a href="#services">
+              How It Works
+            </a>
+            <a href="#contact">
+              Contact
+            </a>
+            <button type="button" class="nav-cta"  data-request aria-haspopup="dialog">
+              Request pickup
+              <span aria-hidden="true">
+                →
+              </span>
+            </button>
+          </nav>
+          <button type="button" class="mobile-menu" id="mobileToggle" aria-controls="mobileNav" aria-expanded="false">
+            Menu ☰
+          </button>
+          <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+            <a href="#about">
+              About
+            </a>
+            <a href="#services">
+              How It Works
+            </a>
+            <a href="#sustainability">
+              Sustainability
+            </a>
+            <a href="#contact">
+              Contact
+            </a>
+            <button type="button"  data-request aria-haspopup="dialog">
+              Request Pickup →
+            </button>
+          </nav>
+        </header>
+        <div class="hero-inner">
+          <div class="kicker">
+            ONE MISSED CALL. A CLEANER KATHMANDU.
+          </div>
+          <h1>
+            Cleaner streets.
+            <br>
+            Smarter
+            <span class="accent">
+              collections.
+            </span>
+          </h1>
+          <p class="hero-description">
+            Connecting households, collectors and communities through simple pickups, live tracking and rewards for a greener tomorrow.
+          </p>
+          <div class="actions">
+            <button type="button"  class="btn btn-primary" data-request aria-haspopup="dialog">
+              Request a pickup
+              <span aria-hidden="true">
+                →
+              </span>
+            </button>
+            <a href="#services" class="btn btn-outline">
+              Explore how it works
+              <span aria-hidden="true">
+                ↗
+              </span>
+            </a>
+          </div>
+        </div>
+        <div class="hero-bottom">
+          <div class="slide-dots" aria-label="Choose hero photo">
+            <button type="button" class="slide-dot active" aria-label="Show photo 1" aria-current="true">
+            </button>
+            <button type="button" class="slide-dot" aria-label="Show photo 2" aria-current="false">
+            </button>
+            <button type="button" class="slideshow-toggle" id="slideshowToggle" aria-pressed="false">
+              Pause slideshow
+            </button>
+          </div>
+          <a class="scroll-text" href="#about">
+            SCROLL TO DISCOVER
+          </a>
+        </div>
+      </section>
+      <div class="feature-band" aria-label="tringgg key benefits">
+        <div class="feature">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M22 16.8v3a2 2 0 0 1-2.2 2 19.7 19.7 0 0 1-8.6-3.1 19.4 19.4 0 0 1-6-6A19.7 19.7 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.12.97.35 1.9.7 2.8a2 2 0 0 1-.45 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.25a2 2 0 0 1 2.1-.46c.9.35 1.84.58 2.8.7a2 2 0 0 1 1.7 1.91z"/>
+          </svg>
+          <div>
+            <div class="feature-name">
+              Easy, inclusive pickup
+            </div>
+            <div class="feature-detail">
+              Missed call or app — everyone can participate
+            </div>
+          </div>
+        </div>
+        <div class="feature">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 5h11v10H3zM14 9h4l3 3v3h-7z"/>
+            <circle cx="7.5" cy="17" r="2"/>
+            <circle cx="18" cy="17" r="2"/>
+          </svg>
+          <div>
+            <div class="feature-name">
+              Reliable collections
+            </div>
+            <div class="feature-detail">
+              Know your vehicle and pickup window
+            </div>
+          </div>
+        </div>
+        <div class="feature">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20 4c-9 0-15 2-16 10-1 4 2 7 6 6 8-1 10-7 10-16z"/>
+            <path d="M4 20c3-5 7-9 12-12"/>
+          </svg>
+          <div>
+            <div class="feature-name">
+              Greener communities
+            </div>
+            <div class="feature-detail">
+              Verified segregation and Green Points
+            </div>
+          </div>
+        </div>
+      </div>
+      <section id="about" class="workflow">
+        <div class="container">
+          <div class="section-header">
+            <div>
+              <div class="eyebrow">
+                HOW TRINGGG WORKS
+              </div>
+              <h2 class="section-title">
+                A smarter way to keep every street clean.
+              </h2>
+            </div>
+            <p class="section-note">
+              A simple connection between households and the collection companies already serving them. No complicated app required for residents using basic phones.
+            </p>
+          </div>
+          <div class="steps" id="services">
+            <article class="step">
+              <div class="step-n">
+                <span class="step-number">
+                  01 / REQUEST
+                </span>
+                <div class="step-icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M6 2h12a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm3 4h6M10 18h4"/>
+                  </svg>
+                </div>
+              </div>
+              <h3>
+                Ring. Ready. Done.
+              </h3>
+              <p>
+                Residents give a missed call, use Nepali voice prompts or tap one button to tell tringgg they are ready for collection.
+              </p>
+            </article>
+            <article class="step">
+              <div class="step-n">
+                <span class="step-number">
+                  02 / DISPATCH
+                </span>
+                <div class="step-icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M3 5h11v10H3zM14 9h4l3 3v3h-7z"/>
+                    <circle cx="7.5" cy="17" r="2"/>
+                    <circle cx="18" cy="17" r="2"/>
+                  </svg>
+                </div>
+              </div>
+              <h3>
+                The right vehicle, on route.
+              </h3>
+              <p>
+                Available collectors see approved requests on their route, with smart grouping to help reduce unnecessary trips.
+              </p>
+            </article>
+            <article class="step">
+              <div class="step-n">
+                <span class="step-number">
+                  03 / VERIFY
+                </span>
+                <div class="step-icon">
+                  <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M4 4h5v5H4zM15 4h5v5h-5zM4 15h5v5H4zM13 13h2v2h-2zM18 13h2v7h-5M13 18v2"/>
+                  </svg>
+                </div>
+              </div>
+              <h3>
+                Scan. Collect. Reward.
+              </h3>
+              <p>
+                Collectors scan a QR at the gate, confirm segregation, and award Green Points for verified responsible pickups.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+      <section id="sustainability" class="statement">
+        <div class="container">
+          <div>
+            <div class="eyebrow mission-eyebrow">
+              THE MISSION
+            </div>
+            <h2 class="section-title">
+              Technology that works for every household.
+            </h2>
+          </div>
+          <div>
+            <p>
+              From keypad phones to collection-truck dashboards, tringgg is designed around accessible service, accountable pickup records and cleaner neighborhoods.
+            </p>
+            <div class="pills">
+              <span class="pill">
+                Zero-reading access
+              </span>
+              <span class="pill">
+                Live collection updates
+              </span>
+              <span class="pill">
+                Green Points
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer id="contact" class="footer">
+        <div class="container">
+          <div>
+            <div class="footer-word">
+              tringgg.
+            </div>
+            <div class="footer-small">
+              Segregate. Collect. Verify. · Kathmandu, Nepal
+            </div>
+          </div>
+          <div class="footer-small">
+            Homepage concept preview — not a live collection service
+          </div>
+        </div>
+      </footer>
+    </main>
+    <dialog class="modal" id="requestModal" aria-labelledby="modalTitle" aria-describedby="modalDescription">
+      <button type="button" class="modal-close" id="closeModal" aria-label="Close">
+        ×
+      </button>
+      <span class="demo-label">
+        Interactive concept preview
+      </span>
+      <h2 id="modalTitle">
+        Request a pickup
+      </h2>
+      <p id="modalDescription">
+        This is a visual demo only. No request will be sent to an actual collector.
+      </p>
+      <form id="pickupForm">
+        <label for="gateId">
+          Registered Gate ID
+        </label>
+        <input id="gateId" name="gateId" value="KTM-W10-0042" required maxlength="40" autofocus/>
+        <label for="wasteType">
+          Waste type
+        </label>
+        <select id="wasteType" name="wasteType">
+          <option value="green">
+            Green / Wet waste
+          </option>
+          <option value="red">
+            Red / Dry waste
+          </option>
+          <option value="both" selected>
+            Both waste types
+          </option>
+        </select>
+        <button class="btn btn-primary" type="submit">
+          Simulate pickup request →
+        </button>
+      </form>
+      <div class="modal-status" id="modalStatus" role="status" aria-live="polite">
+      </div>
+    </dialog>
+  </body>
+</html>
