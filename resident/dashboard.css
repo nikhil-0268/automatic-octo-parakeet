@@ -1,0 +1,369 @@
+/* Resident dashboard styles. Reuses the color variables from ../styles.css. */
+
+.dash-body {
+  background: var(--cream);
+  min-height: 100vh;
+}
+
+/* ---------- Top navigation ---------- */
+.dash-nav {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px clamp(16px, 4vw, 48px);
+  background: var(--forest);
+  color: var(--white);
+}
+
+.dash-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+}
+
+.dash-brand .brand-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.dash-links {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-weight: 600;
+}
+
+.dash-links a,
+.dash-link-button {
+  color: var(--pale);
+  background: none;
+  border: 0;
+  padding: 6px 0;
+}
+
+.dash-links a:hover,
+.dash-link-button:hover,
+.dash-links a[aria-current="page"] {
+  color: var(--white);
+}
+
+.dash-links a[aria-current="page"] {
+  border-bottom: 2px solid var(--lime);
+}
+
+.dash-menu-toggle {
+  display: none;
+  background: transparent;
+  color: var(--white);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  padding: 8px 14px;
+}
+
+/* ---------- Layout ---------- */
+.dash-main {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: clamp(20px, 4vw, 44px) clamp(16px, 4vw, 32px) 60px;
+}
+
+.dash-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 1px 2px rgba(6, 75, 42, 0.06), 0 8px 24px rgba(6, 75, 42, 0.06);
+}
+
+.dash-card h2 {
+  margin: 0 0 6px;
+  color: var(--forest);
+  font-size: 1.15rem;
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+
+.dash-muted {
+  color: #6b7280;
+  margin: 0 0 12px;
+}
+
+.dash-small {
+  font-size: 0.875rem;
+}
+
+/* ---------- Gate ID form ---------- */
+.dash-login {
+  max-width: 480px;
+  margin: 40px auto;
+}
+
+.dash-login h1 {
+  margin: 0 0 8px;
+  color: var(--forest);
+}
+
+.dash-gate-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.dash-gate-form label {
+  font-weight: 600;
+}
+
+.dash-gate-form input {
+  padding: 14px 16px;
+  border: 2px solid #d1d5db;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+.dash-hint {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 14px;
+}
+
+.dash-error {
+  color: #b91c1c;
+  font-weight: 600;
+  min-height: 1.4em;
+}
+
+/* ---------- Greeting ---------- */
+.dash-hello {
+  margin-bottom: 22px;
+}
+
+.dash-hello h1 {
+  margin: 4px 0;
+  color: var(--forest);
+  font-size: clamp(1.6rem, 4vw, 2.3rem);
+}
+
+.dash-kicker {
+  margin: 0;
+  color: var(--lime);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+}
+
+.dash-gate {
+  margin: 0;
+  color: #6b7280;
+}
+
+/* ---------- Bag buttons ---------- */
+.bag-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.bag-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 8px;
+  border-radius: 16px;
+  border: 2px solid transparent;
+  color: var(--white);
+  text-align: center;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.bag-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+}
+
+.bag-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.bag-green { background: #065f46; }
+.bag-red { background: #b91c1c; }
+.bag-both { background: var(--forest); }
+
+.bag-icon { font-size: 1.8rem; }
+.bag-name { font-weight: 700; }
+.bag-sub { font-size: 0.75rem; opacity: 0.9; }
+
+.dash-message {
+  min-height: 1.4em;
+  margin: 12px 0;
+  font-weight: 600;
+}
+
+.dash-message.ok { color: #065f46; }
+.dash-message.error { color: #b91c1c; }
+
+/* ---------- Status steps ---------- */
+.status-steps {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0;
+  display: grid;
+  gap: 14px;
+}
+
+.status-steps li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #9ca3af;
+  font-weight: 600;
+}
+
+.step-dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #d1d5db;
+  flex: none;
+}
+
+.status-steps li.done { color: var(--forest); }
+.status-steps li.done .step-dot { background: var(--lime); border-color: var(--lime); }
+.status-steps li.current { color: var(--forest); }
+.status-steps li.current .step-dot { border-color: var(--lime); box-shadow: 0 0 0 4px var(--pale); }
+
+/* ---------- Points ---------- */
+.points-number {
+  margin: 4px 0 8px;
+  font-size: clamp(2.6rem, 7vw, 3.6rem);
+  font-weight: 800;
+  color: var(--forest);
+  line-height: 1;
+}
+
+.points-unit {
+  font-size: 1rem;
+  color: var(--lime);
+}
+
+/* ---------- Streak + bill ---------- */
+.streak-bar {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  margin: 10px 0;
+}
+
+.streak-seg {
+  height: 14px;
+  border-radius: 999px;
+  background: #e5e7eb;
+}
+
+.streak-seg.filled { background: var(--lime); }
+
+.bill-box {
+  margin-top: 8px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--pale);
+}
+
+.bill-box .dash-muted { margin: 0; color: var(--forest); }
+
+.bill-amount {
+  margin: 4px 0 0;
+  font-size: 1.6rem;
+  color: var(--forest);
+}
+
+.bill-amount s {
+  color: #6b7280;
+  font-size: 1.1rem;
+  margin-right: 8px;
+}
+
+/* ---------- Demo controls ---------- */
+.dash-demo {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 2px dashed #d1d5db;
+  border-radius: 16px;
+}
+
+.dash-demo h2 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+  color: #6b7280;
+}
+
+.demo-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn-outline-dark {
+  background: transparent;
+  color: var(--forest);
+  border: 2px solid var(--forest);
+}
+
+/* ---------- Mobile ---------- */
+@media (max-width: 740px) {
+  .dash-menu-toggle { display: block; }
+
+  .dash-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+    padding: 12px clamp(16px, 4vw, 48px) 18px;
+    background: var(--forest);
+  }
+
+  .dash-links.open { display: flex; }
+
+  .dash-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 420px) {
+  .bag-buttons { grid-template-columns: 1fr; }
+  .bag-btn { flex-direction: row; justify-content: flex-start; gap: 10px; padding: 14px 16px; text-align: left; }
+  .bag-sub { margin-left: auto; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bag-btn { transition: none; }
+}
+
+/* Bag highlighted after scanning that bag's QR code */
+.bag-btn.suggested {
+  border-color: var(--lime);
+  box-shadow: 0 0 0 4px var(--pale), 0 0 0 7px var(--lime);
+  animation: bag-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes bag-pulse {
+  50% { box-shadow: 0 0 0 4px var(--pale), 0 0 0 12px rgba(101, 183, 65, 0.35); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bag-btn.suggested { animation: none; }
+}

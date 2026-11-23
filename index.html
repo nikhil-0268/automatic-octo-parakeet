@@ -1,13 +1,14 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" /><link rel="icon" type="image/png" href="assets/tringgg-logo.png">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>
       tringgg — Cleaner Streets. Smarter Collections.
     </title>
     <meta name="description" content="tringgg is a voice-inclusive smart waste collection experience for Kathmandu. Homepage visual reference concept." />
     <link rel="stylesheet" href="styles.css">
+    <script src="js/api.js" defer></script>
     <script src="app.js" defer>
     </script>
   </head>
@@ -38,16 +39,7 @@
             </a>
           </nav>
           <a href="#top" class="brand" aria-label="tringgg — home">
-            <svg class="brand-icon" viewBox="0 0 40 40" fill="none" aria-hidden="true">
-              <path d="M7 28c6-1 8-8 11-19 9 1 16 7 15 15-1 7-8 11-16 8" stroke="#84d762" stroke-width="3" stroke-linecap="round"/>
-              <path d="M16 31c1-10 7-17 17-22" stroke="#d4f6ba" stroke-width="2" stroke-linecap="round"/>
-            </svg>
-            <span class="brand-name">
-              tringgg
-            </span>
-            <span class="brand-sub">
-              CLEANER TOGETHER
-            </span>
+            <img class="tringgg-logo" src="assets/tringgg-logo.png" alt="tringgg Waste Management" width="598" height="418">
           </a>
           <nav class="nav-links nav-right" aria-label="Primary navigation right">
             <a href="#services">
@@ -55,6 +47,9 @@
             </a>
             <a href="#contact">
               Contact
+            </a>
+            <a href="resident/dashboard.html">
+              My Dashboard
             </a>
             <button type="button" class="nav-cta"  data-request aria-haspopup="dialog">
               Request pickup
@@ -78,6 +73,9 @@
             </a>
             <a href="#contact">
               Contact
+            </a>
+            <a href="resident/dashboard.html">
+              My Dashboard
             </a>
             <button type="button"  data-request aria-haspopup="dialog">
               Request Pickup →
@@ -297,13 +295,13 @@
         ×
       </button>
       <span class="demo-label">
-        Interactive concept preview
+        Demo data — stored in this browser only
       </span>
       <h2 id="modalTitle">
         Request a pickup
       </h2>
       <p id="modalDescription">
-        This is a visual demo only. No request will be sent to an actual collector.
+        Enter the Gate ID from the sticker on your gate and choose which bag is ready.
       </p>
       <form id="pickupForm">
         <label for="gateId">
@@ -325,7 +323,7 @@
           </option>
         </select>
         <button class="btn btn-primary" type="submit">
-          Simulate pickup request →
+          Request pickup →
         </button>
       </form>
       <div class="modal-status" id="modalStatus" role="status" aria-live="polite">
@@ -333,3 +331,4 @@
     </dialog>
   </body>
 </html>
+

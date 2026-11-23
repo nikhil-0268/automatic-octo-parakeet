@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>QR stickers — tringgg</title>
+    <style>
+      body { margin: 0; padding: 24px; font-family: Inter, system-ui, sans-serif; color: #374151; background: #f8faf6; }
+      h1 { color: #064B2A; margin: 0 0 4px; }
+      p { margin: 0 0 20px; }
+      .sheet { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+      figure { margin: 0; background: #fff; border-radius: 16px; padding: 12px; text-align: center; box-shadow: 0 4px 16px rgba(6,75,42,.08); }
+      img { width: 100%; height: auto; display: block; }
+      figcaption { font-size: 13px; margin-top: 6px; word-break: break-all; color: #6b7280; }
+      @media print {
+        body { background: #fff; padding: 0; }
+        .no-print { display: none; }
+        .sheet { grid-template-columns: repeat(3, 1fr); gap: 12px; }
+        figure { box-shadow: none; border: 1px dashed #9ca3af; break-inside: avoid; }
+        figcaption { display: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="no-print">
+      <h1>tringgg QR stickers</h1>
+      <p>Print this page (Ctrl + P) and cut along the dashed lines. Scanning a sticker opens the dashboard with the Gate ID already filled in. Bag stickers also highlight that bag's button.</p>
+    </div>
+    <div class="sheet">
+      <figure><img src="KTM-W10-0042.png" alt="QR for gate KTM-W10-0042"><figcaption>Gate KTM-W10-0042</figcaption></figure>
+      <figure><img src="KTM-W10-0042-GREEN.png" alt="QR for KTM-W10-0042 green bag"><figcaption>KTM-W10-0042 · Green bag</figcaption></figure>
+      <figure><img src="KTM-W10-0042-RED.png" alt="QR for KTM-W10-0042 red bag"><figcaption>KTM-W10-0042 · Red bag</figcaption></figure>
+      <figure><img src="KTM-W10-0104.png" alt="QR for gate KTM-W10-0104"><figcaption>Gate KTM-W10-0104</figcaption></figure>
+      <figure><img src="KTM-W01-0007.png" alt="QR for gate KTM-W01-0007"><figcaption>Gate KTM-W01-0007</figcaption></figure>
+    </div>
+  </body>
+</html>

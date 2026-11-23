@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><link rel="icon" type="image/png" href="../assets/tringgg-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Collector Dashboard — tringgg</title>
+    <meta name="robots" content="noindex" />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../js/vendor/leaflet/leaflet.css">
+    <link rel="stylesheet" href="../js/map.css">
+    <link rel="stylesheet" href="collector.css">
+    <script src="../js/vendor/leaflet/leaflet.js" defer></script>
+    <script src="../js/map.js" defer></script>
+    <script src="../js/api.js" defer></script>
+    <script src="collector.js" defer></script>
+  </head>
+  <body class="col-body">
+    <header class="col-nav">
+      <div class="col-brand">
+        <img class="tringgg-logo" src="../assets/tringgg-logo.png" alt="tringgg Waste Management" width="598" height="418">
+        <span>tringgg</span>
+        <span class="col-badge">Collector</span>
+      </div>
+      <div class="col-user" id="userBox" hidden>
+        <span id="userName"></span>
+        <button type="button" class="col-logout" id="logoutBtn">Log out</button>
+      </div>
+    </header>
+
+    <main class="col-main">
+      <!-- Login: collectors only -->
+      <section class="col-card col-login" id="loginSection" aria-labelledby="loginTitle">
+        <h1 id="loginTitle">Collector login</h1>
+        <p class="col-muted">Staff only. Log in with your Collector ID and PIN.</p>
+        <form id="loginForm" class="col-form">
+          <label for="collectorId">Collector ID</label>
+          <input id="collectorId" placeholder="COL-01" required maxlength="20" autocomplete="username" />
+          <label for="collectorPin">PIN</label>
+          <input id="collectorPin" type="password" inputmode="numeric" placeholder="••••" required maxlength="8" autocomplete="current-password" />
+          <button class="btn btn-primary" type="submit">Log in →</button>
+        </form>
+        <p class="col-error" id="loginError" role="alert"></p>
+        <p class="col-hint">Demo logins: COL-01 / 1234 · COL-02 / 5678</p>
+      </section>
+
+      <!-- Dashboard -->
+      <div id="dashboard" hidden>
+        <div class="col-stats">
+          <div class="col-stat"><span class="col-stat-num" id="statNew">0</span><span>New requests</span></div>
+          <div class="col-stat"><span class="col-stat-num" id="statMine">0</span><span>Accepted by me</span></div>
+          <div class="col-stat"><span class="col-stat-num" id="statDone">0</span><span>Collected by me</span></div>
+        </div>
+
+        <section class="col-card col-map-card" aria-labelledby="mapTitle">
+          <div class="col-map-head">
+            <div>
+              <h2 id="mapTitle">Pickup map</h2>
+              <p class="col-muted" id="locText">Your location: depot</p>
+            </div>
+            <div class="col-map-actions">
+              <button type="button" class="col-btn ghost" id="gpsBtn">📍 Use my GPS</button>
+              <button type="button" class="col-btn ghost" id="simBtn">▶ Simulate drive</button>
+            </div>
+          </div>
+          <div id="collectorMap" class="map-box tall" role="region" aria-label="Map of pickup requests"></div>
+          <p class="col-legend">
+            <span><i class="dot new"></i>New request</span>
+            <span><i class="dot mine"></i>My pickup (number = visit order)</span>
+            <span><i class="dot other"></i>Another collector's</span>
+            <span>🚛 You</span>
+          </p>
+          <h3 class="col-route-title">My route</h3>
+          <p class="col-muted">Suggested nearest-gate order. Dashed lines and distances are straight-line estimates, not road routes. Use Directions for driving navigation. Simulate drive moves a fictional demo position.</p>
+          <ol id="routeList" class="col-route"></ol>
+        </section>
+
+        <form class="col-card col-lookup" id="lookupForm" aria-label="Find a gate">
+          <label for="lookupInput">At a gate? Scan or type the Gate ID</label>
+          <div class="col-lookup-row">
+            <input id="lookupInput" placeholder="KTM-W10-0042" maxlength="40" autocomplete="off" />
+            <button class="btn btn-primary" type="submit">Find</button>
+          </div>
+          <p class="col-message" id="message" role="status" aria-live="polite"></p>
+        </form>
+
+        <section aria-labelledby="newTitle">
+          <h2 class="col-section-title" id="newTitle">New requests <span class="col-muted">grouped by ward</span></h2>
+          <div id="newList" class="col-groups"></div>
+        </section>
+
+        <section aria-labelledby="mineTitle">
+          <h2 class="col-section-title" id="mineTitle">My pickups <span class="col-muted">check the bags, then confirm</span></h2>
+          <div id="mineList" class="col-groups"></div>
+        </section>
+
+        <section aria-labelledby="logTitle">
+          <h2 class="col-section-title" id="logTitle">Collected by me</h2>
+          <ul id="logList" class="col-log"></ul>
+        </section>
+
+        <section class="col-demo" aria-labelledby="demoTitle" hidden>
+          <h2 id="demoTitle">Demo controls</h2>
+          <p class="col-muted">Puts back the starting households and requests.</p>
+          <button type="button" class="btn btn-outline-dark" id="resetDemo">Reset demo data</button>
+        </section>
+      </div>
+    </main>
+  </body>
+</html>
+

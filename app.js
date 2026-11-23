@@ -123,16 +123,27 @@ function initializePickupDialog() {
     else document.getElementById("mobileToggle").focus();
   });
   gateInput.addEventListener("input", () => gateInput.setCustomValidity(""));
-  form.addEventListener("submit", (event) => {
+  form.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const gateId = gateInput.value.trim();
+    const gateId = gateInput.value.trim().toUpperCase();
     gateInput.setCustomValidity(gateId ? "" : "Enter your registered Gate ID.");
     if (!form.reportValidity()) return;
     gateInput.value = gateId;
-    const wasteType = wasteSelect.selectedOptions[0].textContent;
-    // textContent keeps user input as text, never executable HTML.
-    status.textContent = `Demo request for ${gateId} (${wasteType}) received. ` +
-      "In the real app, this would create a dispatch ticket for the household's registered service zone.";
+    // Select values are green / red / both; the data layer expects GREEN / RED / BOTH.
+    const bagColor = wasteSelect.value.toUpperCase();
+    status.replaceChildren();
+    try {
+      await window.tringggApi.requestPickup(gateId, bagColor);
+      // textContent keeps user input as text, never executable HTML.
+      status.append(`Pickup requested for ${gateId}. `);
+      const link = document.createElement("a");
+      link.href = `resident/dashboard.html?gate=${encodeURIComponent(gateId)}`;
+      link.textContent = "Track it on your dashboard →";
+      link.className = "modal-link";
+      status.append(link);
+    } catch (error) {
+      status.textContent = error.message;
+    }
     status.classList.add("visible");
   });
 }

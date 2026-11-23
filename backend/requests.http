@@ -1,0 +1,74 @@
+# Try the API from inside VS Code.
+# Install the "REST Client" extension (by Huachao Mao), start the server (python app.py),
+# then click "Send Request" above any request below. Go top to bottom for the full story.
+
+@base = http://localhost:5000/api
+
+### 0. Is the server up?
+GET {{base}}/health
+
+### 1. A resident gives a missed call (creates a ticket)
+POST {{base}}/webhooks/missed-call
+Content-Type: application/json
+
+{ "from": "9800000001" }
+
+### 2. Same resident calls again (returns the SAME ticket, no duplicate)
+POST {{base}}/webhooks/missed-call
+Content-Type: application/json
+
+{ "from": "9800000001" }
+
+### 3. A number that is not registered
+POST {{base}}/webhooks/missed-call
+Content-Type: application/json
+
+{ "from": "9899999999" }
+
+### 4. Another household requests from the app/website (the "Request a pickup" form)
+POST {{base}}/requests
+Content-Type: application/json
+
+{ "gate_id": "KTM-W10-0043", "waste_type": "green" }
+
+### 5. See the open requests (what a collector sees)
+GET {{base}}/requests?status=requested
+
+### 6. Dispatch ticket 1 to collector 1
+POST {{base}}/requests/1/assign
+Content-Type: application/json
+
+{ "collector_id": 1 }
+
+### 7. Collector's queue
+GET {{base}}/collectors/1/queue
+
+### 8. Wrong QR scanned (rejected)
+POST {{base}}/requests/1/collect
+Content-Type: application/json
+
+{ "scanned_gate_id": "KTM-W10-0043", "collector_id": 1, "segregation_verified": true }
+
+### 9. Right QR, segregation verified (saves the event and awards Green Points)
+POST {{base}}/requests/1/collect
+Content-Type: application/json
+
+{ "scanned_gate_id": "KTM-W10-0042", "collector_id": 1, "segregation_verified": true, "notes": "Bins were sorted" }
+
+### 10. Household summary with Green Points
+GET {{base}}/households/KTM-W10-0042
+
+### 11. Points history
+GET {{base}}/households/KTM-W10-0042/points
+
+### 12. All collection events
+GET {{base}}/collections
+
+### 13. Cancel a request
+POST {{base}}/requests/2/cancel
+
+### 14. Register a new household (gets its gate ID automatically)
+POST {{base}}/households
+Content-Type: application/json
+
+{ "name": "Maya Karki", "phone": "9841234567", "ward": 10, "address": "New Baneshwor" }

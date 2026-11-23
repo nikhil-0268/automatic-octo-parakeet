@@ -1,0 +1,116 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" /><link rel="icon" type="image/png" href="../assets/tringgg-logo.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My Dashboard — tringgg</title>
+    <meta name="description" content="tringgg resident dashboard: request a pickup, track it, and see your Green Points." />
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="../js/api.js" defer></script>
+    <script src="dashboard.js" defer></script>
+  </head>
+  <body class="dash-body">
+    <header class="dash-nav">
+      <a href="../index.html" class="dash-brand" aria-label="tringgg — home">
+        <img class="tringgg-logo" src="../assets/tringgg-logo.png" alt="tringgg Waste Management" width="598" height="418">
+        <span>tringgg</span>
+      </a>
+      <button type="button" class="dash-menu-toggle" id="dashMenuToggle" aria-controls="dashMenu" aria-expanded="false">
+        Menu ☰
+      </button>
+      <nav class="dash-links" id="dashMenu" aria-label="Main navigation">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#services">How It Works</a>
+        <a href="dashboard.html" aria-current="page">My Dashboard</a>
+        <button type="button" id="switchGate" class="dash-link-button" hidden>Change Gate ID</button>
+      </nav>
+    </header>
+
+    <main class="dash-main" id="main">
+      <!-- Shown when no Gate ID is known yet -->
+      <section class="dash-card dash-login" id="gateSection" aria-labelledby="gateTitle">
+        <h1 id="gateTitle">Open your dashboard</h1>
+        <p>Enter the Gate ID printed on the sticker at your gate.</p>
+        <form id="gateForm" class="dash-gate-form">
+          <label for="gateInput">Gate ID</label>
+          <input id="gateInput" name="gate" placeholder="KTM-W10-0042" required maxlength="40" autocomplete="off" />
+          <button class="btn btn-primary" type="submit">Open dashboard →</button>
+        </form>
+        <p class="dash-hint">Demo Gate IDs: KTM-W10-0042 · KTM-W10-0104 · KTM-W01-0007</p>
+        <p class="dash-error" id="gateError" role="alert"></p>
+      </section>
+
+      <!-- Shown once a household is loaded -->
+      <div id="dashboard" hidden>
+        <section class="dash-hello" aria-labelledby="helloTitle">
+          <p class="dash-kicker" id="wardLabel"></p>
+          <h1 id="helloTitle">Namaste, <span id="ownerName"></span></h1>
+          <p class="dash-gate">Gate ID: <strong id="gateLabel"></strong></p>
+        </section>
+
+        <div class="dash-grid">
+          <!-- Request pickup -->
+          <section class="dash-card" aria-labelledby="requestTitle">
+            <h2 id="requestTitle">Request a pickup</h2>
+            <p class="dash-muted">Choose which bag is ready at your gate.</p>
+            <div class="bag-buttons" role="group" aria-label="Choose bag type">
+              <button type="button" class="bag-btn bag-green" data-bag="GREEN">
+                <span class="bag-icon" aria-hidden="true">🍃</span>
+                <span class="bag-name">Green bag</span>
+                <span class="bag-sub">हरियो · कुहिने (kitchen / wet)</span>
+              </button>
+              <button type="button" class="bag-btn bag-red" data-bag="RED">
+                <span class="bag-icon" aria-hidden="true">🧴</span>
+                <span class="bag-name">Red bag</span>
+                <span class="bag-sub">रातो · नकुहिने (plastic / dry)</span>
+              </button>
+              <button type="button" class="bag-btn bag-both" data-bag="BOTH">
+                <span class="bag-icon" aria-hidden="true">🍃🧴</span>
+                <span class="bag-name">Both bags</span>
+                <span class="bag-sub">दुवै</span>
+              </button>
+            </div>
+            <p class="dash-message" id="requestMessage" role="status" aria-live="polite"></p>
+            <p class="dash-muted dash-small">No smartphone? Give a missed call to the toll-free number and press 1, 2 or 3.</p>
+          </section>
+
+          <!-- Pickup status -->
+          <section class="dash-card" aria-labelledby="statusTitle">
+            <h2 id="statusTitle">Pickup status</h2>
+            <p class="dash-muted" id="statusSummary">No active pickup.</p>
+            <ol class="status-steps" id="statusSteps">
+              <li data-step="REQUESTED"><span class="step-dot" aria-hidden="true"></span><span>Requested</span></li>
+              <li data-step="ASSIGNED"><span class="step-dot" aria-hidden="true"></span><span>Collector on the way</span></li>
+              <li data-step="COLLECTED"><span class="step-dot" aria-hidden="true"></span><span>Collected</span></li>
+            </ol>
+            <p class="dash-muted dash-small" id="statusTime"></p>
+          </section>
+
+          <!-- Green Points -->
+          <section class="dash-card dash-points" aria-labelledby="pointsTitle">
+            <h2 id="pointsTitle">Green Points</h2>
+            <p class="points-number"><span id="pointsValue">0</span> <span class="points-unit">pts</span></p>
+            <p class="dash-muted dash-small">Verified Green or Red pickup: +10 points. Both bags: +20 points. Unverified pickups earn no points.</p>
+          </section>
+
+          <!-- Streak + bill -->
+          <section class="dash-card" aria-labelledby="streakTitle">
+            <h2 id="streakTitle">Clean streak this month</h2>
+            <div class="streak-bar" id="streakBar" role="img" aria-label="Streak progress"></div>
+            <p class="dash-muted" id="streakText"></p>
+            <div class="bill-box">
+              <span class="dash-muted">Next month's bill</span>
+              <p class="bill-amount">
+                <s id="billOld" hidden></s>
+                <strong id="billNow"></strong>
+              </p>
+            </div>
+          </section>
+        </div>
+
+      </div>
+    </main>
+  </body>
+</html>
+
